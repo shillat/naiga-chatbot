@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat with Naiga - AI Assistant & Contact Portal</title>
+    <meta name="description"
+        content="Send a message to Naiga and get a personal response. A premium, glassmorphism chat interface for direct communication.">
+    <meta name="keywords" content="Naiga, Contact, Chatbot, Glassmorphism, UI, Vercel">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Chat with Naiga">
+    <meta property="og:description" content="Send a message to Naiga and get a personal response.">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="Chat with Naiga">
+    <meta property="twitter:description" content="Send a message to Naiga and get a personal response.">
+
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Font: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <!-- Fix favicon 404 error -->
+    <link rel="icon" href="data:,">
+</head>
+
+<body>
+    <!-- Background Video -->
+    <video autoplay muted loop id="bgVideo" class="background-video">
+        <source src="https://drive.google.com/uc?export=download&id=1SAb2MmT2qnwvmpSrFk_KO_wRJSSDvRIY" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <!-- Welcome Screen -->
+    <div id="welcomeScreen" class="welcome-screen">
+        <div class="welcome-content">
+            <div class="welcome-avatar-wrapper">
+                <img src="naiga.jpg" alt="Naiga" class="welcome-avatar">
+            </div>
+            <h1 class="welcome-title">Hi, it's Naiga.</h1>
+            <p class="welcome-subtitle">Please ask any question, I will answer.</p>
+
+            <div class="cta-section" id="startChat">
+                <p class="cta-text">Click here to ask a question</p>
+                <div class="arrow-icon">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="12" y1="5" x2="12" y2="19"></line>
+                        <polyline points="19 12 12 19 5 12"></polyline>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Chat Portal -->
+    <div class="chat-container" id="chatPortal" style="display: none;">
+        <header class="chat-header">
+            <div class="avatar-wrapper">
+                <!-- User to replace naiga.jpg with their actual image -->
+                <img src="naiga.jpg" alt="Naiga" class="avatar-image"
+                    onerror="this.src='https://ui-avatars.com/api/?name=Naiga&background=7c4dff&color=fff'">
+                <div class="status-indicator"></div>
+            </div>
+            <div class="header-info">
+                <h2>Naiga</h2>
+                <p>Always Online</p>
+            </div>
+        </header>
+
+        <main class="chat-messages" id="chatMessages">
+            <div class="message bot-message">
+                Hey, its Naiga. I'll get back to you personally if you leave your email below!
+            </div>
+        </main>
+
+        <div id="typingIndicator" class="typing" style="padding: 0 20px;">Sending message...</div>
+
+        <footer class="chat-input-area">
+            <input type="email" id="userEmail" placeholder="Your Email address" required>
+            <div class="input-row">
+                <input type="text" id="userInput" placeholder="Ask a question..." autocomplete="off">
+                <button id="sendBtn">Send</button>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Thank You / Goodbye Screen -->
+    <div id="thankYouScreen" class="welcome-screen" style="display: none;">
+        <div class="welcome-content">
+            <h1 class="welcome-title">Thank you for interacting with Naiga!</h1>
+            <p class="welcome-subtitle">Your message has been delivered safely.</p>
+
+            <div class="cta-section" id="askAgain">
+                <p class="cta-text">Need to ask another question?</p>
+                <div class="button-group">
+                    <button class="re-engage-btn">Yes, let's go!</button>
+                    <button class="exit-btn" id="exitSite">No, exit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
